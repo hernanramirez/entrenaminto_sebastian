@@ -76,6 +76,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "entrenaminto_sebastian.users.apps.UsersConfig",
     # Your stuff: custom apps go here
+    "entrenaminto_sebastian.telefonera_app.apps.TelefoneraAppConfig",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

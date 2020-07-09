@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Eliminar del telefono #{{book.id}}</h5>
+    </div>
+    <div class="card-body">
+    <dl class="row">
+      <dt class="col-sm-3">Nombre</dt>
+      <dd class="col-sm-9">{{ telefono.nombre }}</dd>
+      <dt class="col-sm-3">Telefono</dt>
+      <dd class="col-sm-9">{{ telefono.telefono }}</dd>
+      <dt class="col-sm-3">Tipo</dt>
+      <dd class="col-sm-9">{{ telefono.tipo }}</dd>
+    </dl>
+
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="alert alert-warning" role="alert">
+            Are you sure you want to delete <strong>{{ object }}</strong> ?
+        </div>
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+
+</div>
+
+{% endblock %}
