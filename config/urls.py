@@ -16,6 +16,8 @@ urlpatterns = [
     path("users/", include("entrenaminto_sebastian.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+    path("telefonos/", include("entrenaminto_sebastian.telefonera_app.urls")),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

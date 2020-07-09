@@ -8,3 +8,6 @@ class Telefono(models.Model):
     tipo = StatusField(choices_name='TIPO_CHOICES')
     nombre = models.CharField(max_length=100)
     telefono = models.CharField(max_length=20)
+
+    class Meta:
+        ordering = ['pk']
