@@ -3,13 +3,14 @@
 {% block content %}
 <div class="card">
     <div class="card-header">
-        <h5 class="card-title">Crear nuevo telefono</h5>
+        <h5 class="card-title">Añadir una nueva película</h5>
     </div>
     <div class="card-body">
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{form.as_p}}
-            <button type="submit" class="btn btn-success">Grabar</button>
+            <button type="submit" class="btn btn-outline-success">Guardar</button>
+            <a href="{% url 'movies_app:movies-list' %}" class="btn btn-outline-primary">Cancelar</a>
         </form>
     </div>
 </div>

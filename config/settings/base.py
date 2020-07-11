@@ -71,12 +71,14 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "versatileimagefield",
 ]
 
 LOCAL_APPS = [
     "entrenaminto_sebastian.users.apps.UsersConfig",
     # Your stuff: custom apps go here
     "entrenaminto_sebastian.telefonera_app.apps.TelefoneraAppConfig",
+    "entrenaminto_sebastian.movies_app.apps.MoviesAppConfig",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

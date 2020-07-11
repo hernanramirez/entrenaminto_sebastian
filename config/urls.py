@@ -17,6 +17,7 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
     path("telefonos/", include("entrenaminto_sebastian.telefonera_app.urls")),
+    path("movies/", include("entrenaminto_sebastian.movies_app.urls"))
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

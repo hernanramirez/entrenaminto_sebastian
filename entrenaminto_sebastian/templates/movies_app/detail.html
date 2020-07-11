@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="btn-group btn-group-toggle">
+    <a href="{% url 'movies_app:movies-list' %}" class="btn btn-outline-primary">Volver al listado</a>
+    <a href="{% url 'movies_app:movies-update' movie.pk%}" class="btn btn-outline-secondary">Actualizar</a>
+    <a href="{% url 'movies_app:movies-delete' movie.pk%}" class="btn btn-outline-danger">Eliminar</a>
+</div>                    
+<br><br>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Detalles de la película</h5>
+    </div>
+    <div class="card-body">
+    <dl class="row">
+        <dt class="col-sm-3">Foto</dt>
+        <dd class="col-sm-9">
+            {% if movie.poster %}
+               <img src="{{ movie.poster.url }}" alt="Foto"/> <!--local.foto.crop.25x25  thumbnail-->
+            {% else %}
+               no foto
+            {% endif %}
+      </dd>
+      <dt class="col-sm-3">Nombre</dt>
+      <dd class="col-sm-9">{{ movie.nombre }}</dd>
+      <dt class="col-sm-3">Año</dt>
+      <dd class="col-sm-9">{{ movie.año }}</dd>
+      <dt class="col-sm-3">Director</dt>
+      <dd class="col-sm-9">{{ movie.director }}</dd>
+    </dl>
+
+    </div>
+</div>
+
+{% endblock %}

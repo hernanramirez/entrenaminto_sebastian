@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Eliminar {{ movie.nombre }}</h5>
+    </div>
+    <div class="card-body">
+    <dl class="row">
+      <dt class="col-sm-3">Nombre</dt>
+      <dd class="col-sm-9">{{ movie.nombre }}</dd>
+      <dt class="col-sm-3">Año</dt>
+      <dd class="col-sm-9">{{ movie.año }}</dd>
+      <dt class="col-sm-3">Director</dt>
+      <dd class="col-sm-9">{{ movie.director }}</dd>
+    </dl>
+
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="alert alert-warning" role="alert">
+            ¿Está seguro de que quiere eliminar <strong>{{ movie.nombre }}</strong>?
+        </div>
+        <button type="submit" class="btn btn-danger btn-lg btn-block">Delete</button>
+        <p></p>
+        <a href="{% url 'movies_app:movies-list' %}" class="btn btn-primary">Cancelar y volver al listado</a>
+    </form>
+
+</div>
+
+{% endblock %}
