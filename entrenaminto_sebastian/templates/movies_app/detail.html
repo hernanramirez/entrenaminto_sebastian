@@ -13,6 +13,14 @@
     </div>
     <div class="card-body">
     <dl class="row">
+        <dt class="col-sm-3">Foto</dt>
+        <dd class="col-sm-9">
+            {% if movie.poster %}
+               <img src="{{ movie.poster.url }}" alt="Foto"/> <!--local.foto.crop.25x25  thumbnail-->
+            {% else %}
+               no foto
+            {% endif %}
+      </dd>
       <dt class="col-sm-3">Nombre</dt>
       <dd class="col-sm-9">{{ movie.nombre }}</dd>
       <dt class="col-sm-3">Año</dt>

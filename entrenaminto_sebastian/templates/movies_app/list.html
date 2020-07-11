@@ -2,10 +2,11 @@
 
 {% block content %}
 
-<table class="table">
+<table class="table table-bordered table-hover">
     <tr>
         <thead class="thead-light">
             <tr>
+                <th scope="col">Poster</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Año</th>
                 <th scope="col">Director</th>
@@ -15,6 +16,13 @@
         <tbody>
             {% for movie in movies %}
             <tr>
+                <td>
+                    {% if movie.poster %}
+                    <img src="{{ movie.poster.crop.200x200 }}" alt="Foto"/> <!--local.foto.crop.25x25  thumbnail-->
+                    {% else %}
+                    no foto
+                    {% endif %}
+                </td>
                 <td>{{ movie.nombre }}</td>
                 <td>{{ movie.año }}</td>
                 <td>{{ movie.director }}</td>

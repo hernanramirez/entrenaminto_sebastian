@@ -5,6 +5,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.urls import reverse_lazy
+from braces.views import LoginRequiredMixin
 
 from entrenaminto_sebastian.telefonera_app.models import Telefono
 
@@ -32,10 +33,10 @@ class TelefonoListView(ListView):
         return context
     '''    
 
-class TelefonoCreateView(CreateView):
+class TelefonoCreateView(LoginRequiredMixin, CreateView):
     model = Telefono
     template_name = 'telefonera_app/telefonos/form.html'
-    fields = ('tipo', 'nombre', 'telefono', )
+    fields = ('tipo', 'nombre', 'telefono', 'foto')
     success_url = reverse_lazy('telefonera_app:telefonera-list')
 
 
@@ -46,18 +47,18 @@ class TelefonoDetailView(DetailView):
     context_object_name = 'telefono'
 
 
-class TelefonoUpdateView(UpdateView):
+class TelefonoUpdateView(LoginRequiredMixin, UpdateView):
 
     model = Telefono
     template_name = 'telefonera_app/telefonos/form.html'
     context_object_name = 'telefono'
-    fields = ('tipo', 'nombre', 'telefono', )
+    fields = ('tipo', 'nombre', 'telefono', 'foto')
 
     def get_success_url(self):
         return reverse_lazy('telefonera_app:telefonera-list')
 
 
-class TelefonoDeleteView(DeleteView):
+class TelefonoDeleteView(LoginRequiredMixin, DeleteView):
     model = Telefono
     context_object_name = 'telefono'
     template_name = 'telefonera_app/telefonos/confirm_delete.html'

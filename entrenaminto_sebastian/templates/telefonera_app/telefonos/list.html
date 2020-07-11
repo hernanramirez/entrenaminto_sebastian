@@ -10,6 +10,7 @@
         <thead class="thead-light">
             <tr>
                 <th scope="col">ID</th>
+                <th scope="col">Foto</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Telefono</th>
                 <th scope="col">Acciones</th>
@@ -19,6 +20,13 @@
             {% for telefono in telefonos %}
             <tr>
                 <td><a href="{% url 'telefonera_app:telefonera-detail' telefono.pk %}" >{{ telefono.pk }}</a></td>
+                <td>
+                    {% if telefono.foto %}
+                       <img src="{{ telefono.foto.crop.40x40 }}" alt="Foto"/> <!--local.foto.crop.25x25  thumbnail-->
+                    {% else %}
+                       no foto
+                    {% endif %}
+                </td>
                 <td>{{ telefono.nombre }}</td>
                 <td>{{ telefono.telefono }}</td>
                 <td>
