@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Añadir una nueva película</h5>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-outline-success">Guardar</button>
+            <a href="{% url 'movies_app:movies-list' %}" class="btn btn-outline-primary">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,4 +1,5 @@
 {
-    "python.pythonPath": "venv_sebastian/bin/python",
-    "python.linting.pylintEnabled": true
+    "python.pythonPath": "/usr/bin/python3",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }
