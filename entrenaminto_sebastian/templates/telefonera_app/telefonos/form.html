@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <div class="card">
@@ -8,7 +10,7 @@
     <div class="card-body">
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {{form.as_p}}
+            {{form|crispy}}
             <button type="submit" class="btn btn-success">Grabar</button>
         </form>
     </div>

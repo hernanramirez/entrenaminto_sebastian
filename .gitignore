@@ -282,4 +282,5 @@ entrenaminto_sebastian/media/
 
 .pytest_cache/
 
-
+### ignore migrate
+entrenaminto_sebastian/*/migrations/

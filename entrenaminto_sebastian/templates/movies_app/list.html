@@ -2,40 +2,48 @@
 
 {% block content %}
 
-<table class="table table-bordered table-hover">
-    <tr>
-        <thead class="thead-light">
-            <tr>
-                <th scope="col">Poster</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Año</th>
-                <th scope="col">Director</th>
-                <th scope="col">Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for movie in movies %}
-            <tr>
-                <td>
-                    {% if movie.poster %}
-                    <img src="{{ movie.poster.crop.200x200 }}" alt="Foto"/> <!--local.foto.crop.25x25  thumbnail-->
-                    {% else %}
-                    no foto
-                    {% endif %}
-                </td>
-                <td>{{ movie.nombre }}</td>
-                <td>{{ movie.año }}</td>
-                <td>{{ movie.director }}</td>
-                <td>
-                    <a href="{% url 'movies_app:movies-detail' movie.pk%}" class="btn btn-outline-info">Detalle</a>
-                    <a href="{% url 'movies_app:movies-update' movie.pk%}" class="btn btn-outline-warning">Actualizar</a>
-                    <a href="{% url 'movies_app:movies-delete' movie.pk%}" class="btn btn-outline-danger">Eliminar</a>                
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-</table>
 <a href="{% url 'movies_app:movies-create' %}" class="btn btn-outline-primary">Crear</a>
+<br>
+
+<br>
+<div class="table-responsive table--no-card m-b-30">
+  <table class="table table-borderless table-striped table-earning">
+
+    <tr>
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Poster</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Año</th>
+          <th scope="col">Director</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for movie in movies %}
+        <tr>
+          <td>
+            {% if movie.poster %}
+            <img src="{{ movie.poster.crop.200x200 }}" alt="Foto" />
+            <!--local.foto.crop.25x25  thumbnail-->
+            {% else %}
+            no foto
+            {% endif %}
+          </td>
+          <td>{{ movie.nombre }}</td>
+          <td>{{ movie.año }}</td>
+          <td>{{ movie.director }}</td>
+          <td>
+            <a href="{% url 'movies_app:movies-detail' movie.pk%}" class="btn btn-outline-info">Detalle</a>
+            <a href="{% url 'movies_app:movies-update' movie.pk%}" class="btn btn-outline-warning">Actualizar</a>
+            <a href="{% url 'movies_app:movies-delete' movie.pk%}" class="btn btn-outline-danger">Eliminar</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+</div>
+
 
 {% if is_paginated %}
 {% include "_pagination.html" %}

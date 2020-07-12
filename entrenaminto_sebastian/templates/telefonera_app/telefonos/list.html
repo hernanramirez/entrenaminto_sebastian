@@ -2,41 +2,45 @@
 
 {% block content %}
 
-<a href="{% url 'telefonera_app:telefonera-create' %}" >Crear</a>
+<a href="{% url 'telefonera_app:telefonera-create' %}">Crear</a>
 <br><br>
 
-<table class="table">
+<div class="table-responsive m-b-40">
+  <table class="table table-borderless table-data3">
     <tr>
-        <thead class="thead-light">
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Foto</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Telefono</th>
-                <th scope="col">Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for telefono in telefonos %}
-            <tr>
-                <td><a href="{% url 'telefonera_app:telefonera-detail' telefono.pk %}" >{{ telefono.pk }}</a></td>
-                <td>
-                    {% if telefono.foto %}
-                       <img src="{{ telefono.foto.crop.40x40 }}" alt="Foto"/> <!--local.foto.crop.25x25  thumbnail-->
-                    {% else %}
-                       no foto
-                    {% endif %}
-                </td>
-                <td>{{ telefono.nombre }}</td>
-                <td>{{ telefono.telefono }}</td>
-                <td>
-                    <a href="{% url 'telefonera_app:telefonera-update' telefono.pk %}" class="btn btn-primary">Actualizar</a>
-                    <a href="{% url 'telefonera_app:telefonera-delete' telefono.pk %}" class="btn btn-outline-danger">Eliminar</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-</table>
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Foto</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for telefono in telefonos %}
+        <tr>
+          <td><a href="{% url 'telefonera_app:telefonera-detail' telefono.pk %}">{{ telefono.pk }}</a></td>
+          <td>
+            {% if telefono.foto %}
+            <img src="{{ telefono.foto.crop.40x40 }}" alt="Foto" />
+            <!--local.foto.crop.25x25  thumbnail-->
+            {% else %}
+            no foto
+            {% endif %}
+          </td>
+          <td>{{ telefono.nombre }}</td>
+          <td>{{ telefono.telefono }}</td>
+          <td>
+            <a href="{% url 'telefonera_app:telefonera-update' telefono.pk %}" class="btn btn-primary">Actualizar</a>
+            <a href="{% url 'telefonera_app:telefonera-delete' telefono.pk %}"
+              class="btn btn-outline-danger">Eliminar</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+</div>
 
 {% if is_paginated %}
 {% include "_pagination.html" %}
